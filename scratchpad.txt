@@ -1,0 +1,24 @@
+Todo:
+
+need to generate some ways of creating the program - but the timings are all voltage/etc dependent (apart from the base program)
+
+
+
+
+
+next challenge - set up the program/driver structure. THe sleep timings and concept works nicely.
+
+on the concept of bounces - what happens if you have a bad bounce? you still need to do debouncing, fool. 
+consider if you flip the main switch, and it twiddles 50 times, you will get 50 state changes.
+
+Fool.
+
+Drop your OCRA and do better debounces. No debounce necessary for the interrupt switch as long as you have proper debounce on the rest (CPU wake and all)
+
+
+
+
+
+might need to rethink any of the input read systems.. we could fire up TCCNT0?
+
+A button read needs to be significantly faster than anything else out there.. oh, so we have a TCCNT0 which is just doing button polls and shoves the result in portXYZ state

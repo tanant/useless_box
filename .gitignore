@@ -4,6 +4,19 @@
 *.o
 *.obj
 
+# the subdir
+Debug
+
+# VC project files
+*.vcxproj
+*.vcxproj.*
+
+# complied tings
+*.elf
+*.hex
+*.map
+
+
 # Precompiled Headers
 *.gch
 *.pch
