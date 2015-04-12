@@ -4,6 +4,9 @@
 *.o
 *.obj
 
+# asm dumps
+*.s
+
 # the subdir
 Debug
 
