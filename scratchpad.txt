@@ -1,3 +1,5 @@
+I don't think i really 'get' the timing system, so doing a project fork to investigate this..
+
 Todo:
 
 need to generate some ways of creating the program - but the timings are all voltage/etc dependent (apart from the base program)
@@ -22,3 +24,35 @@ Drop your OCRA and do better debounces. No debounce necessary for the interrupt 
 might need to rethink any of the input read systems.. we could fire up TCCNT0?
 
 A button read needs to be significantly faster than anything else out there.. oh, so we have a TCCNT0 which is just doing button polls and shoves the result in portXYZ state
+
+
+Avail 'threads'
+
+main
+Timer2 (8bit)
+Timer1 (16 bit)
+Timer0 (8bit)
+PCINT0/1/2 (not really a thread though)
+
+main is woken by timer2. So timer2 is our primary heartbeat.
+
+We use idle in main to do stuff.. 
+
+a = 1010
+b = 1011
+f = 1111
+3 = 0011
+7 = 0111
+8 = 1000
+2 = 0010
+d = 1101
+
+
+Timer0 - runs constantly and deals with grabbing input data from the two (or however many) data switches we have. Get the timing right for the 12-bit thing. Any pin sense data must go here, because we can easily control the timing and how quickly we get the data off the signal pins
+
+Timer1 - currently unused
+
+Timer2 - ONLY thing that will wake the main thread. There's no such thing as a wake command.
+
+
+Huh, funny, implications for atomicitiy - try make sure that the main thread only ever reads variables that could get munched in the ISRs. So allow the ISR to do all housekeeping (including flagging tick counters as exhausted!)
