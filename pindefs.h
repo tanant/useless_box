@@ -41,4 +41,8 @@
 #define MAJOR_TRIP_MASK  0x08
 #define RETURN_TRIP_MASK 0x10
 
+#define PORT_STATUS PORTB
+#define HEARTBEAT_PIN 0
+#define STATUS_MODE0 1
+#define STATUS_MODE1 2
 #endif

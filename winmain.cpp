@@ -10,10 +10,21 @@
 
 
 #include "program.h"
+// you get 12 commands in a program.
+// that's basically f/b/f/b/f/b/f/b/f/b/s/f
+// could you do programmes as a string?
+// 
+
+// using a human readable program list string - wasteful, but good.
+
+
+
+
 
 void test_command(){
 	unsigned __int16 command;
-	
+	unsigned __int16 program[12];
+
 	command = 0x00;	
 
 	// lets set up a basic program
