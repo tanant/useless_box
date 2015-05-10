@@ -241,6 +241,8 @@ int main(void) {
 		if ((cpu_state == MAIN_READY)&&(tick >= MAGIC_TICK_COUNT) ) {		// entrant if we are not in the middle of a processing loop
 			// do work
 			PORT_STATUS ^= (1<<HEARTBEAT_PIN);
+
+
 			// work done
 			
 			cpu_state = MAIN_COMPLETE;										// indicate the cpu has marked the tick as dirty but all work completed.
